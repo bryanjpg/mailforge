@@ -18,7 +18,7 @@ Generate personalized cold emails in seconds. Perfect for sales teams, recruiter
 
 - **Backend:** Cloudflare Workers (Serverless API)
 - **Frontend:** HTML + Vanilla JS + Tailwind CSS
-- **Email Generation:** Anthropic Claude Opus 4.6
+- **Email Generation:** OpenAI GPT-4
 - **Email Sending:** MS Graph API (Office365)
 - **Payments:** Stripe
 - **Storage:** Cloudflare KV
@@ -59,7 +59,7 @@ npm run deploy
 ## Environment Variables
 
 Required:
-- `ANTHROPIC_API_KEY` — Claude API key
+- `OPENAI_API_KEY` — OpenAI API key (GPT-4)
 - `STRIPE_SECRET_KEY` — Stripe secret key
 - `MS_CLIENT_ID` — MS Graph client ID
 - `MS_CLIENT_SECRET` — MS Graph secret

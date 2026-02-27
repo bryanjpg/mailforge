@@ -57,10 +57,10 @@ async function handleGenerateEmail(request, env) {
       );
     }
 
-    // Generate email using Claude
+    // Generate email using OpenAI GPT-4
     const emailBody = await generateEmail(
       prospect,
-      env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY
+      env.OPENAI_API_KEY || process.env.OPENAI_API_KEY
     );
 
     return json({

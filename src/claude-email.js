@@ -1,5 +1,5 @@
 /**
- * Email Generation using Claude Opus 4.6
+ * Email Generation using OpenAI GPT-4
  * No external SDK - direct HTTP calls for edge compatibility
  */
 
@@ -26,23 +26,26 @@ ${prospect.context ? `- Context: ${prospect.context}` : ""}
 
 Make it personal, direct, and compelling.`;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
+      Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: "claude-opus-4-6",
+      model: "gpt-4",
       max_tokens: 300,
-      system: systemPrompt,
       messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
         {
           role: "user",
           content: userPrompt,
         },
       ],
+      temperature: 0.7,
     }),
   });
 
@@ -50,9 +53,9 @@ Make it personal, direct, and compelling.`;
 
   if (!response.ok) {
     throw new Error(
-      `Claude API error: ${data.error?.message || JSON.stringify(data)}`
+      `OpenAI API error: ${data.error?.message || JSON.stringify(data)}`
     );
   }
 
-  return data.content[0].text;
+  return data.choices[0].message.content;
 }
