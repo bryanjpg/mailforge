@@ -2,25 +2,30 @@ name = "mailforge"
 type = "javascript"
 account_id = "4b05237351888b9aa815de0b5802f328"
 workers_dev = true
-route = "mailforge.example.com/*"
-zone_id = ""
+main = "src/index.js"
 
+# KV Namespaces for development
+[[kv_namespaces]]
+binding = "EMAILS"
+id = "a6e5b66a9acd4ef58eece8dd47fcd1f0"
+
+[[kv_namespaces]]
+binding = "USERS"
+id = "da706bb0d89a43f8aaddb7339f24d53a"
+
+# Environment variables (development)
+[env.development]
+vars = { ENVIRONMENT = "development" }
+
+# Environment variables (production)
 [env.production]
 name = "mailforge-prod"
-route = "mailforge.example.com/*"
+vars = { ENVIRONMENT = "production" }
 
-[[kv_namespaces]]
+[[env.production.kv_namespaces]]
 binding = "EMAILS"
-id = "mailforge_emails"
+id = "a6e5b66a9acd4ef58eece8dd47fcd1f0"
 
-[[kv_namespaces]]
+[[env.production.kv_namespaces]]
 binding = "USERS"
-id = "mailforge_users"
-
-[env.production.kv_namespaces]
-binding = "EMAILS"
-id = "mailforge_emails_prod"
-
-[env.production.kv_namespaces]
-binding = "USERS"
-id = "mailforge_users_prod"
+id = "da706bb0d89a43f8aaddb7339f24d53a"
