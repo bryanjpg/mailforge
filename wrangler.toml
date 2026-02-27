@@ -1,10 +1,11 @@
 name = "mailforge"
-type = "javascript"
+main = "src/index.js"
+compatibility_date = "2026-02-27"
+
 account_id = "4b05237351888b9aa815de0b5802f328"
 workers_dev = true
-main = "src/index.js"
 
-# KV Namespaces for development
+# KV Namespaces
 [[kv_namespaces]]
 binding = "EMAILS"
 id = "a6e5b66a9acd4ef58eece8dd47fcd1f0"
@@ -13,11 +14,11 @@ id = "a6e5b66a9acd4ef58eece8dd47fcd1f0"
 binding = "USERS"
 id = "da706bb0d89a43f8aaddb7339f24d53a"
 
-# Environment variables (development)
+# Development environment
 [env.development]
 vars = { ENVIRONMENT = "development" }
 
-# Environment variables (production)
+# Production environment
 [env.production]
 name = "mailforge-prod"
 vars = { ENVIRONMENT = "production" }
