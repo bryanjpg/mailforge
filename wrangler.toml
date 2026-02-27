@@ -1,0 +1,26 @@
+name = "mailforge"
+type = "javascript"
+account_id = "4b05237351888b9aa815de0b5802f328"
+workers_dev = true
+route = "mailforge.example.com/*"
+zone_id = ""
+
+[env.production]
+name = "mailforge-prod"
+route = "mailforge.example.com/*"
+
+[[kv_namespaces]]
+binding = "EMAILS"
+id = "mailforge_emails"
+
+[[kv_namespaces]]
+binding = "USERS"
+id = "mailforge_users"
+
+[env.production.kv_namespaces]
+binding = "EMAILS"
+id = "mailforge_emails_prod"
+
+[env.production.kv_namespaces]
+binding = "USERS"
+id = "mailforge_users_prod"

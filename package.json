@@ -1,0 +1,19 @@
+{
+  "name": "mailforge",
+  "version": "0.1.0",
+  "description": "AI Cold Email Generator - Powered by Claude Opus 4.6",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "wrangler build"
+  },
+  "dependencies": {
+    "wrangler": "^3.59.0",
+    "@anthropic-ai/sdk": "^0.28.0",
+    "@stripe/stripe-js": "^4.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
